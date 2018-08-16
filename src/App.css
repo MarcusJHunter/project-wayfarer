@@ -48,3 +48,16 @@ input[type=text] {
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
+
+.close:hover {
+  background: red;
+}
+.wayfarer{
+  text-align: center;
+}
+.column{
+  float: left;
+  width: 30%;
+  padding: 15px;
+  font-size: 12px;
+}
