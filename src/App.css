@@ -25,3 +25,22 @@
 .signIn-Up:hover {
   color: rgb(248, 255, 132);
 }
+
+/* ######### Form ####### */
+
+ .ClassForm {
+   padding: 60px 0;
+    margin: 0 auto;
+    max-width: 320px;
+ }
+
+input[type=email],
+input[type=password],
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}

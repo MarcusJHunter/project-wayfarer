@@ -7,11 +7,11 @@ var PostSchema = new Schema ({
     user: {
         type: String,
         ref: Types.name
-    }
+    },
     city: {
         type: String,
-        ref: Types.
-    }
+        ref: Types.name
+    },
 })
 
 module.exports = mongoose.model('Posts', PostSchema);

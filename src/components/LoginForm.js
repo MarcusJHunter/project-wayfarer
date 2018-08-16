@@ -1,7 +1,8 @@
-import react, {Component} from 'react'
+import React, {Component} from 'react';
 
 
-class Login extends Component {
+
+class LoginForm extends Component {
 
     state = {
       email: "",
@@ -25,36 +26,25 @@ class Login extends Component {
 
   render() {
     return(
-       <div className = "Login">
-         <form onSubmit = {this.handleSubmit}>
-          <FormGroup controlId = "email" bsSize = "large">
-            <ControlLabel> Email </ControlLabel>
-             <FormControl
-             autoFocus
-             type = 'email'
-             value = {this.state.email}
-             onChange = {this.handleChange}
-             />
-            </FormGroup>
-            <FormGroup controlId = "password" bsSize = "large" >
-              <ControlLabel> Password </ControlLabel>
-              <FormControl
-                value = {this.state.password}
-                onChange = {this.handleChange}
-                type = "password"
-               />
-            </FormGroup>
-             <Button
-             block
-             bsSize = "large"
-             disabled = {!this.validateForm()
-             }
-             type = "submit"
-             >
-             Login
-             </Button>
-         </form>
-      </div>
+      <form className='ClassForm'>
+          <h2>Login</h2>
+            <div className='form-group'>
+            <label htmlFor = 'email' > Email address </label>
+            <input type = 'email' className = 'form-control' name='email'/>
+            </div>
+            <div className = 'form-group'>
+            <label htmlFor = 'password' > Password </label>
+            <input type = 'password' className = 'form-control' name = 'password'/>
+            </div>
+            <button type = 'submit' className = 'btn btn - primary' >
+            Login
+            </button>
+        </form>
     );
   }
 }
+
+export default LoginForm
+
+
+
