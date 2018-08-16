@@ -1,4 +1,4 @@
-import react, {component} from 'react'
+import React, {component} from 'react'
 
 
 class TopicContainer extends Component {
