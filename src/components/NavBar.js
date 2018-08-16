@@ -5,18 +5,24 @@ const navbar = (props) => {
 
     if(props.loggedIn === false) {
             return(
-                <header className="headRight">
-                    <Link to='/signin'>Sign in</Link>
-                    <Link to='/signup'>Sign up</Link>
-                </header>
+                <div className="header">
+                    <h2>Wayfarer</h2>
+                    <header className="headRight">
+                        <Link to='/signin' className="signIn-Up">Sign in</Link>
+                        <Link to='/signup' className="signIn-Up">Sign up</Link>
+                    </header>
+                </div>
             )
     }
     else {
         return(
-            <header className="headRight">
-                <Link to='/profile'>UserName</Link>
-                <p>Sign out</p>
-            </header>
+            <div className="header">
+                <h2>Wayfarer</h2>
+                <header className="headRight">
+                    <Link to='/profile'>UserName</Link>
+                    <p>Sign out</p>
+                </header>
+            </div>
         )
     }
 }

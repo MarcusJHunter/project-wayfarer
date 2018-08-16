@@ -1,3 +1,27 @@
 .App {
+
+}
+
+/*********** HEADER ***********/
+
+.header {
   display: flex;
+  justify-content: space-between;
+  padding: 0 20px 0;
+  background: rgb(60, 60, 60);
+  color: white;
+}
+
+.headRight {
+  margin-top: 18px;
+}
+
+.signIn-Up {
+  margin-left: 12px;
+  text-decoration: none;
+  color: white;
+}
+
+.signIn-Up:hover {
+  color: rgb(248, 255, 132);
 }
