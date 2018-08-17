@@ -41,11 +41,11 @@ let controllers = require("./controllers");
 //   res.sendFile("views/homepage.html", { root: __dirname });
 // });
 
-// app.get("/dashboard", (req, res) => {
+// app.get("/profile", (req, res) => {
 //   res.sendFile("views/dashboard.html", { root: __dirname });
 // });
 // API Endpoints
-
+app.get("/api/users",)
 // app.get("/api/users/", controllers.user.show);
 // app.get("/api/users/:username", controllers.user.find);
 // app.get("/api/drinks/", controllers.drink.show);
