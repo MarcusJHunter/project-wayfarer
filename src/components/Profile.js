@@ -3,9 +3,13 @@ import React, {Component} from 'react';
 class Profile extends Component {
     render(){
         return(
-            <div>
-                <h1>UserName</h1>
-                <h2>User City</h2>
+            <div className='profile'>
+                <h3 clsssName='profileName'>Name: </h3>
+                <h4 className='profileCity'>City:</h4>
+                <h4 className='profileSignUpDate'>SUD:</h4>
+
+
+
             </div>
         )
     }

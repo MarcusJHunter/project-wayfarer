@@ -31,6 +31,7 @@ const navbar = (props) => {
                             </Popup>
                     </header>
                 </div>
+
             )
     }
     else {
