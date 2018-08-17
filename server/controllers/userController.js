@@ -3,7 +3,7 @@ let db = require("../models");
 // GET api/users
 
 const getUsers = (req, res) => {
-    db.User.find((err, users) => {
+    db.User.find({}, (err, users) => {
         if (err) {
             console.log(err);
             return err;
@@ -33,7 +33,7 @@ const createUser = (req, res) => {
                 res.json(user);
             });
         }
-        
+
     })
 };
 
@@ -54,9 +54,9 @@ const updateUser = (req, res) => {
     let update = req.body;
 
     db.User.findOneAndUpdate(
-        email, 
+        email,
         update,
-        {new: true}, 
+        {new: true},
         (err, user) => {
             if (err) {
                 console.log(err);

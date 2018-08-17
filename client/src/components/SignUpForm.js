@@ -8,11 +8,19 @@ class SignUpForm extends Component {
 
   state = {
     email: '',
-    password: ''
+    password: '',
+    confirmpassword:'',
+    location: '',
+
   }
 
     validateForm() {
+      if('password' !== 'confirmpassword'){
+        console.log('passwords dont match!')
+      }
+
       return this.state.email.length > 0 && this.state.password.length > 0;
+
     }
 
     handleChange = event => {
@@ -43,7 +51,7 @@ class SignUpForm extends Component {
             </div>
               <div className = 'form-group'>
             <label htmlFor = 'password' > Confirm Password </label>
-            <input type = 'password' className = 'form-control' name = 'password'/>
+            <input type = 'password' className = 'form-control' name = 'confirmpassword'/>
             </div>
             <button type = 'submit' className = 'btn btn-primary' >
             Sign up
