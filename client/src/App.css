@@ -83,3 +83,18 @@ input[type=text] {
   margin: auto;
   text-align: center;
 }
+
+
+/* ##### Carousel #### */
+
+.carousel .slide img {
+  max-height: 400px;
+  max-width: 400px;
+  min-width: 200px !important;
+}
+
+.carousel{
+  width: 75% !important;
+  margin-left: 225px;
+  margin-top: 20px;
+}
