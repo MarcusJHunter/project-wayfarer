@@ -3,18 +3,20 @@ import axios from 'axios';
 class UserModel {
 
     static all(){
-        let request = axios.get("https://localhost:3000/api/users")
+        let request = axios.get("https://localhost:4000/api/users")
         return request;
     }
 
     static getUser(email, password){
-        console.log('in getUser')
-        let request = axios.get("http://localhost:3000/api/user/"+email);
+        
+        let request = axios.get("http://localhost:4000/api/user/" + email);
         return request;
     }
 
-    static createUser(user) {
-        let request = axios.post("https://localhost:3000/api/users/create", user)
+    static createUser(newUser) {
+        console.log('in createtUser', newUser);
+        let request = axios.post("http://localhost:4000/api/user/create", 
+            {newUser})
         return request;
     }
     

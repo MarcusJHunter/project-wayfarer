@@ -3,10 +3,6 @@ import Users from '../models/UserModel';
 
 class LoginForm extends Component {
 
-    state = {
-      
-    };
-
     // componentDidMount = () => {
     //   var ls = window.localStorage;
 
