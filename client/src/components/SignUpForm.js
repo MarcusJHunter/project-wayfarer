@@ -1,9 +1,5 @@
 import React, {Component} from 'react';
 
-
-
-
-
 class SignUpForm extends Component {
 
   state = {
@@ -31,7 +27,26 @@ class SignUpForm extends Component {
 
     handleSubmit = event => {
       event.preventDefault();
-    }
+      
+      let email = this.refs.email.value;
+      let password = this.refs.password.value;
+      
+      Users.createUser(user)
+        .then(response => {
+          if(response.data){
+            window.localStorage.setItem('user',response.data.email)
+            this.props.login(response.data.email);
+          }
+          else{
+            console.log('user not found')
+          }
+          
+        })
+        .catch(err => {
+          console.log(err);
+          
+        })
+      }
 
   render() {
       return (

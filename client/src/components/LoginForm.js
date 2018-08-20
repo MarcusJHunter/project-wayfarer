@@ -1,42 +1,67 @@
 import React, {Component} from 'react';
-
-
+import Users from '../models/UserModel';
 
 class LoginForm extends Component {
 
     state = {
-      email: "",
-      password: ""
+      
     };
 
+    // componentDidMount = () => {
+    //   var ls = window.localStorage;
 
-  validateForm() {
-    return this.state.email.length > 0 && this.state.password.length > 0;
-  }
+    //   ls.setItem('email', 'test');
+    //   console.log(ls.getItem('email'));
+    // }
 
-  handleChange = event => {
-    this.setState({
-      [event.id]: event.value
-    });
-  }
+
+  // validateForm() {
+  //   return this.state.email.length > 0 && this.state.password.length > 0;
+  // }
+
+  // handleChange = event => {
+  //   this.setState({
+  //     [event.id]: event.value
+  //   });
+  // }
 
   handleSubmit = event => {
     event.preventDefault();
-  }
+    
+    let email = this.refs.email.value;
+    let password = this.refs.password.value;
+    
+    Users.getUser(email, password)
+      .then(response => {
+        if(response.data){
+          window.localStorage.setItem('user',response.data.email)
+          this.props.login(response.data.email);
+        }
+        else{
+          console.log('user not found')
+        }
+        
+      })
+      .catch(err => {
+        console.log(err);
+        
+      })
+    }
+  
 
   render() {
     return(
-      <form className='ClassForm'>
+      <form className='ClassForm' onSubmit={this.handleSubmit}>
           <h2>Login</h2>
             <div className='form-group'>
             <label htmlFor = 'email' > Email address </label>
-            <input type = 'email' className = 'form-control' name='email'/>
+            <input type = 'email' className = 'form-control' ref='email' id="email"/>
             </div>
             <div className = 'form-group'>
             <label htmlFor = 'password' > Password </label>
-            <input type = 'password' className = 'form-control' name = 'password'/>
+            <input type = 'password' className = 'form-control' ref='password' id="password"/>
             </div>
-            <button type = 'submit' className = 'btn btn - primary' >
+            <button type = 'submit' className = 'btn btn - primary'>
             Login
             </button>
         </form>

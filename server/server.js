@@ -29,23 +29,19 @@ let controllers = require("./controllers");
 
 // ******** ROUTES ***********
 // API Endpoints
+
+// ------- Users -------
 app.get("/api/users", controllers.user.getAll);
 app.get("/api/user/:email", controllers.user.getUser);
-app.post("/api/user/post", controllers.user.createUser);
+app.post("/api/user/create", controllers.user.createUser);
 app.put("/api/user/update/:email", controllers.user.updateUser);
-// app.get("/api/users/", controllers.user.show);
-// app.get("/api/users/:username", controllers.user.find);
-// app.get("/api/drinks/", controllers.drink.show);
-// app.get("/api/drinks/:id", controllers.drink.find);
 
-// app.post("/api/newuser", controllers.user.create);
-// app.post("/api/:user/newdrink", controllers.drink.create);
 
-// app.put("/api/user/update/:username", controllers.user.updateProfile);
-// app.put("/api/user/add/:username/:drinkid", controllers.user.addDrinks);
-// app.put("/api/user/remove/:username/:drinkname", controllers.user.removeDrinks);
+// ------- Posts -------
+app.get("/api/posts", controllers.post.getPosts);
+app.post("/api/posts/create", controllers.post.createPost);
 
-// app.delete("/api/users/:username", controllers.user.removeProfile);
+
 
 // ********** SERVER *********
 

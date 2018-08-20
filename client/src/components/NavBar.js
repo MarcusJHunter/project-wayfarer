@@ -18,7 +18,7 @@ const navbar = (props) => {
                                     <a className="close" onClick={close}>
                                     &times;
                                     </a>
-                                    <LoginForm />
+                                    <LoginForm login={props.login}/>
                                 </div>)}
                             </Popup>
                             <Popup trigger={<a className="button"> Sign Up! </a>} modal>
