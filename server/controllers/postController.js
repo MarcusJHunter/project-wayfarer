@@ -1,7 +1,7 @@
-let db= require ("./models")
+let db= require ("../models")
 
 
-// get api/allposts
+// get api/posts
 
 const getPosts = (req,res)=> {
   db.Post.find ({}, (err) => {
@@ -13,6 +13,7 @@ const getPosts = (req,res)=> {
   });
 };
 
+// post api/posts/create
 
 const createPost = (req, res) => {
   console.log(req.body)

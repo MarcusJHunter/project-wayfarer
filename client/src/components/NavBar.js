@@ -6,10 +6,11 @@ import SignUpForm from './SignUpForm.js';
 
 const navbar = (props) => {
 
+    <Link exact to='/'></Link>
     if(props.loggedIn === false) {
             return(
                 <div className="header">
-                    <h2>Wayfarer</h2>
+                    <Link to='/homepage' className="title">Wayfarer</Link>
                     <header className="headRight">
                             <Popup trigger={<a className="button"> Login </a>} modal>
                                 {close => (
@@ -17,7 +18,7 @@ const navbar = (props) => {
                                     <a className="close" onClick={close}>
                                     &times;
                                     </a>
-                                    <LoginForm />
+                                    <LoginForm login={props.login}/>
                                 </div>)}
                             </Popup>
                             <Popup trigger={<a className="button"> Sign Up! </a>} modal>
@@ -37,7 +38,7 @@ const navbar = (props) => {
     else {
         return(
             <div className="header">
-                <h2>Wayfarer</h2>
+                <Link to='/homepage' className="title">Wayfarer</Link>
                 <header className="headRight">
                     <Link to='/profile'>UserName</Link>
                     <p>Sign out</p>
