@@ -1,27 +1,26 @@
 import React, {Component} from 'react';
-
-<<<<<<< HEAD
 import Users from '../models/UserModel';
 
 class Profile extends Component {
-    state = {
-
-    };
-
-    let email = this.refs.email.value;
-    let location = this.refs.email.value;
-=======
-
-class Profile extends Component {
-
-
-
-
->>>>>>> upstream/master
-
-
 
     render(){
+
+        let user = {};
+
+        Users.getUser(email)
+            .then(response => {
+                if (response.data == "Succesful Call") {
+                    user = response
+                    console.log(user)
+                } else {
+                    console.log("user not found")
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                console.log("In catch");
+            });
+
         return(
             <div className='profile'>
                 <h3 clsssName='profileName'>Email: </h3>
