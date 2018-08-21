@@ -3,6 +3,7 @@ import Users from '../models/UserModel';
 
 class Profile extends Component {
 
+<<<<<<< HEAD
     render(){
 
         let user = {};
@@ -20,6 +21,9 @@ class Profile extends Component {
                 console.log(err);
                 console.log("In catch");
             });
+=======
+    
+>>>>>>> upstream/master
 
         return(
             <div className='profile'>

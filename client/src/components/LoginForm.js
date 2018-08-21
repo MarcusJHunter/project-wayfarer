@@ -36,14 +36,17 @@ class LoginForm extends Component {
     Users.getUser(email, password)
       .then(response => {
         console.log(response)
-        if(response.data = "Succesful Call"){
+        if(response.data == "Succesful Call"){
           window.localStorage.setItem('user',response.data.email)
           this.props.login(response.data.email);
         }
         else{
           console.log('user not found')
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/master
       })
       .catch(err => {
         console.log(err);
