@@ -30,12 +30,23 @@ class SignUpForm extends Component {
     handleSubmit = event => {
       event.preventDefault();
 
+
       let email = this.refs.email.value;
       let password = this.refs.password.value;
 
       Users.createUser()
+
+      let user = {
+        email: this.refs.email.value,
+        loacation: this.refs.location.value,
+        password: this.refs.password.value,
+      }
+
+      Users.createUser(user)
+
         .then(response => {
-          if(response.data){
+          console.log(response)
+          if(response){
             window.localStorage.setItem('user',response.data.email)
             this.props.login(response.data.email);
           }
@@ -47,28 +58,31 @@ class SignUpForm extends Component {
         .catch(err => {
           console.log(err);
 
+
+          console.log(user);
+
         })
       }
 
   render() {
       return (
-        <form className='ClassForm'>
+        <form className='ClassForm' onSubmit={this.handleSubmit}>
           <h2>Sign Up</h2>
             <div className='form-group'>
             <label htmlFor = 'email' > Email address </label>
-            <input type = 'email' className = 'form-control' name='email'/>
+            <input type = 'email' className = 'form-control' ref='email'/>
             </div>
              <div className='form-group'>
             <label htmlFor = 'text' > Location </label>
-            <input type = 'text' className = 'form-control' name='email'/>
+            <input type = 'text' className = 'form-control' ref='location'/>
             </div>
             <div className = 'form-group'>
             <label htmlFor = 'password' > Password </label>
-            <input type = 'password' className = 'form-control' name = 'password'/>
+            <input type = 'password' className = 'form-control' ref = 'password'/>
             </div>
               <div className = 'form-group'>
             <label htmlFor = 'password' > Confirm Password </label>
-            <input type = 'password' className = 'form-control' name = 'confirmpassword'/>
+            <input type = 'password' className = 'form-control' ref = 'confirmpassword'/>
             </div>
             <button type = 'submit' className = 'btn btn-primary' >
             Sign up
@@ -77,4 +91,4 @@ class SignUpForm extends Component {
       )};
 }
 
-export default SignUpForm
+export default SignUpForm;

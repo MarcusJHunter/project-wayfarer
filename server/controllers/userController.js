@@ -37,13 +37,16 @@ const createUser = (req, res) => {
     })
 };
 
+// Post api/user/find
+
 const getUser = (req, res) => {
-    db.User.findOne({email: req.params.email}, (err, user) => {
+    console.log(req)
+    db.User.findOne({email: req.body.email, password: req.body.password}, (err, user) => {
         if (err) {
             console.log(err);
             return err;
         }
-        res.json(user);
+        res.status(200).send("Succesful Call");
     });
 };
 
