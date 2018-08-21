@@ -37,7 +37,7 @@ const createUser = (req, res) => {
     })
 };
 
-// Post api/user/find
+// POST api/user/find
 
 const getUser = (req, res) => {
     console.log(req)
@@ -49,6 +49,18 @@ const getUser = (req, res) => {
         res.status(200).send("Succesful Call");
     });
 };
+
+// POST api/user/profile
+
+const getProfile = (req, res) => {
+    db.User.findOne({email: req.body.email}, (err, user) => {
+        if (err){
+            console.log(err);
+            return err
+        }
+        res.status(200).send("Good Call");
+    })
+}
 
 // PUT api/user/update/:username
 
@@ -71,6 +83,7 @@ const updateUser = (req, res) => {
 
 module.exports = {
     getUser: getUser,
+    getProfile: getProfile,
     updateUser: updateUser,
     getAll: getUsers,
     createUser: createUser
