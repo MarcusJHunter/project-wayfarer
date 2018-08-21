@@ -14,8 +14,10 @@ class App extends Component {
     loggedIn: false,
     user: {}
   }
-  
+
+
   login = (newUser) => {
+
     this.setState({
       loggedIn: true,
       user: newUser,
@@ -31,6 +33,7 @@ class App extends Component {
   }
 
   render() {
+
     return (
       <div className="App">
         <NavBar login={this.login} loggedIn={this.state.loggedIn} user={this.state.user} />

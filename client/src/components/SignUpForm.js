@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Users from '../models/UserModel';
 
+
 class SignUpForm extends Component {
 
   state = {
@@ -29,13 +30,20 @@ class SignUpForm extends Component {
     handleSubmit = event => {
       event.preventDefault();
 
+
+      let email = this.refs.email.value;
+      let password = this.refs.password.value;
+
+      Users.createUser()
+
       let user = {
         email: this.refs.email.value,
         loacation: this.refs.location.value,
         password: this.refs.password.value,
       }
-      
+
       Users.createUser(user)
+
         .then(response => {
           console.log(response)
           if(response){
@@ -45,11 +53,14 @@ class SignUpForm extends Component {
           else{
             console.log('user not found')
           }
-          
+
         })
         .catch(err => {
           console.log(err);
+
+
           console.log(user);
+
         })
       }
 
