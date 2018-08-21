@@ -5,11 +5,30 @@ import Profile from '../components/Profile';
 import HomepageContainer from '../containers/HomepageContainer';
 import TopicContainer from '../containers/TopicContainer';
 
-export default (
-  <Switch>
-    <Route exact path='/' component={ TopicContainer } />
-    <Route path='/signin' component={ SignIn } />
-    <Route path='/profile' component={ Profile } />
-    <Route path='/homepage' component={ HomepageContainer } />
-  </Switch>
-)
+
+const routes = (props) => {
+  return (
+    <Switch>
+      <Route exact path='/' component={ TopicContainer } />
+      <Route path='/signin' component={ SignIn } />
+      <Route path='/profile' 
+        render = { () => 
+          <Profile 
+              loggedIn={props.loggedIn} 
+              user={props.user}
+          />
+        }
+      />
+
+      <Route path='/homepage' render = { () => 
+          <HomepageContainer 
+            loggedIn={props.loggedIn} 
+            user={props.user}
+          />
+        }
+        />
+    </Switch>
+  )
+}
+
+export default routes;
