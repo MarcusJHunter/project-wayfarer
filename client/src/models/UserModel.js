@@ -17,7 +17,8 @@ class UserModel {
         let request = axios.post("https://localhost:3000/api/users/create", user)
         return request;
     }
-    
+
+
 }
 
 export default UserModel;

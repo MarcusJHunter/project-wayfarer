@@ -30,6 +30,9 @@ const navbar = (props) => {
                                     <SignUpForm />
                                 </div>)}
                             </Popup>
+                            <div>
+                            <a>(Profile)</a>
+                            </div>
                     </header>
                 </div>
 

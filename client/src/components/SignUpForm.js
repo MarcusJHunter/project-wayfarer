@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Users from '../models/UserModel';
 
 
 class SignUpForm extends Component {
@@ -28,11 +29,11 @@ class SignUpForm extends Component {
 
     handleSubmit = event => {
       event.preventDefault();
-      
+
       let email = this.refs.email.value;
       let password = this.refs.password.value;
-      
-      Users.createUser(user)
+
+      Users.createUser()
         .then(response => {
           if(response.data){
             window.localStorage.setItem('user',response.data.email)
@@ -41,11 +42,11 @@ class SignUpForm extends Component {
           else{
             console.log('user not found')
           }
-          
+
         })
         .catch(err => {
           console.log(err);
-          
+
         })
       }
 

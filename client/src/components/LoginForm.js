@@ -4,7 +4,7 @@ import Users from '../models/UserModel';
 class LoginForm extends Component {
 
     state = {
-      
+
     };
 
     // componentDidMount = () => {
@@ -27,10 +27,10 @@ class LoginForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    
+
     let email = this.refs.email.value;
     let password = this.refs.password.value;
-    
+
     Users.getUser(email, password)
       .then(response => {
         if(response.data){
@@ -40,14 +40,14 @@ class LoginForm extends Component {
         else{
           console.log('user not found')
         }
-        
+
       })
       .catch(err => {
         console.log(err);
-        
+
       })
     }
-  
+
 
   render() {
     return(
