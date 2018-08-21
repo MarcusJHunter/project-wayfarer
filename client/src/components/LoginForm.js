@@ -29,7 +29,8 @@ class LoginForm extends Component {
     
     Users.getUser(email, password)
       .then(response => {
-        if(response.data){
+        console.log(response)
+        if(response.data = "Succesful Call"){
           window.localStorage.setItem('user',response.data.email)
           this.props.login(response.data.email);
         }
@@ -40,7 +41,7 @@ class LoginForm extends Component {
       })
       .catch(err => {
         console.log(err);
-        
+        console.log("In catch")
       })
     }
   

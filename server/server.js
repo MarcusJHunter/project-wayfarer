@@ -32,7 +32,7 @@ let controllers = require("./controllers");
 
 // ------- Users -------
 app.get("/api/users", controllers.user.getAll);
-app.get("/api/user/:email", controllers.user.getUser);
+app.post("/api/user/find", controllers.user.getUser);
 app.post("/api/user/create", controllers.user.createUser);
 app.put("/api/user/update/:email", controllers.user.updateUser);
 

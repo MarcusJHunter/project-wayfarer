@@ -7,9 +7,11 @@ class UserModel {
         return request;
     }
 
-    static getUser(email, password){
-        
-        let request = axios.get("http://localhost:4000/api/user/" + email);
+    static getUser(email, password){ 
+        console.log(email)
+        console.log(password)
+        let request = axios.post("http://localhost:4000/api/user/find", {email: email, password: password});
+        console.log(request);
         return request;
     }
 
