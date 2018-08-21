@@ -23,7 +23,8 @@ class UserModel {
             newUser)
         return request;
     }
-    
+
+
 }
 
 export default UserModel;

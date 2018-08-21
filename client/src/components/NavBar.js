@@ -3,8 +3,13 @@ import {Link} from 'react-router-dom';
 import Popup from "reactjs-popup";
 import LoginForm from './LoginForm.js'
 import SignUpForm from './SignUpForm.js';
+import Profile from './Profile'
 
 const navbar = (props) => {
+
+
+    console.log(props.user);
+
 
     <Link exact to='/'></Link>
     if(props.loggedIn === false) {
@@ -30,6 +35,11 @@ const navbar = (props) => {
                                     <SignUpForm login={props.login} />
                                 </div>)}
                             </Popup>
+                            <div>
+                            <Link to='/profile'>{props.user}</Link>
+
+
+                            </div>
                     </header>
                 </div>
 
@@ -40,7 +50,7 @@ const navbar = (props) => {
             <div className="header">
                 <Link to='/homepage' className="title">Wayfarer</Link>
                 <header className="headRight">
-                    <Link to='/profile'>UserName</Link>
+                    <Link to='/profile'>boop{props.user}</Link>
                     <p>Sign out</p>
                 </header>
             </div>

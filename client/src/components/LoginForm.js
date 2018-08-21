@@ -3,6 +3,12 @@ import Users from '../models/UserModel';
 
 class LoginForm extends Component {
 
+
+    state = {
+
+    };
+
+
     // componentDidMount = () => {
     //   var ls = window.localStorage;
 
@@ -23,10 +29,10 @@ class LoginForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    
+
     let email = this.refs.email.value;
     let password = this.refs.password.value;
-    
+
     Users.getUser(email, password)
       .then(response => {
         if(response.data){
@@ -37,10 +43,13 @@ class LoginForm extends Component {
           console.log('user not found')
           localStorage.setItem('user', null)
         }
+
       })
       .catch(err => {
         console.log(err);
+
         console.log("In catch")
+
       })
     }
 
