@@ -7,7 +7,7 @@ class App extends Component {
 
   state = {
     loggedIn: false,
-    user: {}
+    user: {},
   }
 
 
