@@ -8,7 +8,7 @@ import Profile from './Profile'
 const navbar = (props) => {
 
 
-    console.log(props.user);
+    console.log(props);
 
 
     <Link exact to='/'></Link>
@@ -23,7 +23,7 @@ const navbar = (props) => {
                                     <a className="close" onClick={close}>
                                     &times;
                                     </a>
-                                    <LoginForm login={props.login} />
+                                    <LoginForm login={this.props.login} />
                                 </div>)}
                             </Popup>
                             <Popup trigger={<a className="button"> Sign Up! </a>} modal>
@@ -32,11 +32,11 @@ const navbar = (props) => {
                                     <a className="close" onClick={close}>
                                     &times;
                                     </a>
-                                    <SignUpForm login={props.login} />
+                                    <SignUpForm login={this.props.login} />
                                 </div>)}
                             </Popup>
                             <div>
-                            <Link to='/profile'>{props.user}</Link>
+                            <Link to='/profile'>boop</Link>
 
 
                             </div>
@@ -50,7 +50,7 @@ const navbar = (props) => {
             <div className="header">
                 <Link to='/homepage' className="title">Wayfarer</Link>
                 <header className="headRight">
-                    <Link to='/profile'>boop{props.user}</Link>
+                    <Link to='/profile'>{this.props.user}</Link>
                     <p>Sign out</p>
                 </header>
             </div>
