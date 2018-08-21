@@ -9,7 +9,7 @@ class App extends Component {
     loggedIn: false,
     user: ''
   }
-  
+
   login = (email) => {
     this.setState({
       loggedIn: true,
@@ -26,6 +26,7 @@ class App extends Component {
 
   render() {
     console.log('storage',window.localStorage.getItem('user'));
+    console.log(this.state.user)
     return (
       <div className="App">
         <NavBar login={this.login} loggedIn={this.state.loggedIn} user={this.state.user} />

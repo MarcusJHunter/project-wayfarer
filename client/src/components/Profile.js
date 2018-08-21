@@ -3,14 +3,16 @@ import Users from '../models/UserModel';
 
 class Profile extends Component {
 
-<<<<<<< HEAD
+
     render(){
 
         let user = {};
+        let email = window.localStorage.getItem('user')
 
-        Users.getUser(email)
+
+        Users.getProfile(email)
             .then(response => {
-                if (response.data == "Succesful Call") {
+                if (response.data == "Good Call") {
                     user = response
                     console.log(user)
                 } else {
@@ -21,14 +23,12 @@ class Profile extends Component {
                 console.log(err);
                 console.log("In catch");
             });
-=======
-    
->>>>>>> upstream/master
+
 
         return(
             <div className='profile'>
-                <h3 clsssName='profileName'>Email: </h3>
-                <h4 className='profileCity'>City:</h4>
+                <h3 clsssName='profileName'>Email: {user.email} </h3>
+                <h4 className='profileCity'>City:{user.location}</h4>
                 <h4 className='profileSignUpDate'>SUD:</h4>
             </div>
         )

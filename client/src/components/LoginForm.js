@@ -43,10 +43,7 @@ class LoginForm extends Component {
         else{
           console.log('user not found')
         }
-<<<<<<< HEAD
 
-=======
->>>>>>> upstream/master
       })
       .catch(err => {
         console.log(err);
