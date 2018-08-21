@@ -88,13 +88,18 @@ input[type=text] {
 /* ##### Carousel #### */
 
 .carousel .slide img {
-  max-height: 400px;
-  max-width: 400px;
+  height: 90vw;
+  width: 80vh;
   min-width: 200px !important;
 }
 
 .carousel{
-  width: 75% !important;
-  margin-left: 225px;
+  width: 100%;
+
   margin-top: 20px;
+}
+
+.username{
+  color: white;
+  text-decoration: none;
 }
