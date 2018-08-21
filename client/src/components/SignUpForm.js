@@ -28,14 +28,17 @@ class SignUpForm extends Component {
 
     handleSubmit = event => {
       event.preventDefault();
+
       let user = {
         email: this.refs.email.value,
-        password: this.refs.password.value
+        loacation: this.refs.location.value,
+        password: this.refs.password.value,
       }
       
       Users.createUser(user)
         .then(response => {
-          if(response.data){
+          console.log(response)
+          if(response){
             window.localStorage.setItem('user',response.data.email)
             this.props.login(response.data.email);
           }
@@ -46,7 +49,7 @@ class SignUpForm extends Component {
         })
         .catch(err => {
           console.log(err);
-          
+          console.log(user);
         })
       }
 

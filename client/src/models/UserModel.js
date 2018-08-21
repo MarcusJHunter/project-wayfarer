@@ -16,7 +16,7 @@ class UserModel {
     static createUser(newUser) {
         console.log('in createtUser', newUser);
         let request = axios.post("http://localhost:4000/api/user/create", 
-            {newUser})
+            newUser)
         return request;
     }
     
