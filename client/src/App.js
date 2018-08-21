@@ -7,25 +7,25 @@ class App extends Component {
 
   state = {
     loggedIn: false,
-    user: ''
+    user: {}
   }
   
-  login = (email) => {
+  login = (newUser) => {
     this.setState({
       loggedIn: true,
-      user: email,
+      user: newUser,
     })
   }
 
   logout = () => {
+    localStorage.setItem('user', null);
     this.setState({
       loggedIn: false,
-      user: '',
+      user: {},
     })
   }
 
   render() {
-    console.log('storage',window.localStorage.getItem('user'));
     return (
       <div className="App">
         <NavBar login={this.login} loggedIn={this.state.loggedIn} user={this.state.user} />

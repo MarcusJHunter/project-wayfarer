@@ -29,13 +29,13 @@ class LoginForm extends Component {
     
     Users.getUser(email, password)
       .then(response => {
-        console.log(response)
-        if(response.data == "Succesful Call"){
-          window.localStorage.setItem('user',response.data.email)
-          this.props.login(response.data.email);
+        if(response.data){
+          localStorage.setItem('user',response.data.email)
+          this.props.login(response.data);
         }
         else{
           console.log('user not found')
+          localStorage.setItem('user', null)
         }
       })
       .catch(err => {
@@ -43,7 +43,6 @@ class LoginForm extends Component {
         console.log("In catch")
       })
     }
-  
 
   render() {
     return(

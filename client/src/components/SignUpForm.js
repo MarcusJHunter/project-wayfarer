@@ -39,7 +39,7 @@ class SignUpForm extends Component {
         .then(response => {
           console.log(response)
           if(response){
-            window.localStorage.setItem('user',response.data.email)
+            localStorage.setItem('user',response.data.email)
             this.props.login(response.data.email);
           }
           else{

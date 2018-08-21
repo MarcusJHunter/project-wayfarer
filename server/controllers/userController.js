@@ -45,8 +45,14 @@ const getUser = (req, res) => {
         if (err) {
             console.log(err);
             return err;
+        }else{
+            if(user){
+                res.status(200).json(user);
+            }else{
+                res.status(404).json(null)
+            }
         }
-        res.status(200).send("Succesful Call");
+        
     });
 };
 
@@ -57,8 +63,13 @@ const getProfile = (req, res) => {
         if (err){
             console.log(err);
             return err
+        }else{
+            if(user){
+                res.status(200).json(user);
+            }else{
+                res.status(404).json(null)
+            }
         }
-        res.status(200).send("Good Call");
     })
 }
 
