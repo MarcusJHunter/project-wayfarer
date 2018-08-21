@@ -30,19 +30,12 @@ class SignUpForm extends Component {
     handleSubmit = event => {
       event.preventDefault();
 
-
-      let email = this.refs.email.value;
-      let password = this.refs.password.value;
-
-      Users.createUser()
-
-      let user = {
-        email: this.refs.email.value,
-        loacation: this.refs.location.value,
-        password: this.refs.password.value,
-      }
-
       Users.createUser(user)
+        let user = {
+          email: this.refs.email.value,
+          loacation: this.refs.location.value,
+          password: this.refs.password.value,
+        }
 
         .then(response => {
           console.log(response)
