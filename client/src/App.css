@@ -88,13 +88,13 @@ input[type=text] {
 /* ##### Carousel #### */
 
 .carousel .slide img {
-  height: 90vw;
-  width: 80vh;
-  min-width: 200px !important;
+  height: 45vw;
+  width: 40vh;
+
 }
 
 .carousel{
-  width: 100%;
+  width: 90%;
 
   margin-top: 20px;
 }

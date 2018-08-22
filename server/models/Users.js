@@ -6,7 +6,10 @@ let UserSchema = new Schema ({
     name: String,
     location: String,
     password: String,
-    joinDate: String,
+    joinDate: {
+        type: Date,
+        default: Date.now
+    },
     userImg: String,
 })
 let User = mongoose.model('User', UserSchema);

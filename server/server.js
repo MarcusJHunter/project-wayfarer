@@ -19,6 +19,7 @@ app.use(function(req, res, next) {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
+  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS', )
   next();
 });
 
@@ -35,7 +36,7 @@ app.get("/api/users", controllers.user.getAll);
 app.post("/api/user/find", controllers.user.getUser);
 app.post("api/user/profile", controllers.user.getProfile);
 app.post("/api/user/create", controllers.user.createUser);
-app.put("/api/user/update/:email", controllers.user.updateUser);
+app.put("/api/user/update", controllers.user.updateUser);
 
 
 // ------- Posts -------

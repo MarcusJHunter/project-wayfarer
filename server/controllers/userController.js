@@ -52,7 +52,7 @@ const getUser = (req, res) => {
                 res.status(404).json(null)
             }
         }
-        
+
     });
 };
 
@@ -73,7 +73,7 @@ const getProfile = (req, res) => {
     })
 }
 
-// PUT api/user/update/:username
+// PUT api/user/update/
 
 const updateUser = (req, res) => {
     let email = req.params.email;
