@@ -30,18 +30,19 @@ class SignUpForm extends Component {
     handleSubmit = event => {
       event.preventDefault();
 
-      Users.createUser(user)
-        let user = {
-          email: this.refs.email.value,
-          loacation: this.refs.location.value,
-          password: this.refs.password.value,
-        }
+      let user = {
+        email: this.refs.email.value,
+        loacation: this.refs.location.value,
+        password: this.refs.password.value,
+      }
 
+
+      Users.createUser(user)
         .then(response => {
           console.log(response)
           if(response){
             localStorage.setItem('user',response.data.email)
-            this.props.login(response.data.email);
+            this.props.login(response.data);
           }
           else{
             console.log('user not found')

@@ -9,5 +9,6 @@ let UserSchema = new Schema ({
     joinDate: String,
     userImg: String,
 })
+
 let User = mongoose.model('User', UserSchema);
 module.exports = User;
