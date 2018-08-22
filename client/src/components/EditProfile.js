@@ -19,13 +19,14 @@ class EditProfile extends Component{
         Users.editProfile(user)
         .then(response => {
           console.log("In then")
-          console.log(response)
-          if(response){
-            this.props.login()
-          }
-          else{
-            console.log('user not found')
-          }
+          console.log('Edit Profile Response = ', response)
+          this.props.updateUser(response.data);
+          // if(response){
+          //   this.props.login()
+          // }
+          // else{
+          //   console.log('user not found')
+          // }
         })
         .catch(err => {
           console.log("In CATCH")
@@ -50,9 +51,7 @@ class EditProfile extends Component{
               <label htmlFor = 'text' > Location </label>
               <input type = 'text' className = 'form-control' ref='location'/>
             </div>
-            <button type = 'submit'>
-              Edit
-            </button>
+            <input type='submit' name='submit' value='submit' />
         </form>
 
     );

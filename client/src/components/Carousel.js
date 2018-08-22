@@ -9,7 +9,7 @@ class DemoCarousel extends Component{
     render() {
       return(
       <div className="carousel">
-        <Carousel autoPlay showThumbs={false}>
+        <Carousel autoPlay >
           <div >
             <img className="slide" src={London} alt="London"/>
             <p>London</p>

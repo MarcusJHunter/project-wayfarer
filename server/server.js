@@ -7,9 +7,9 @@ const app = express();
 app.use(express.json());
 // Set up body parser
 
-// const bodyParser = require("body-parser");
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
+const bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // CORS
 
@@ -34,7 +34,7 @@ let controllers = require("./controllers");
 // ------- Users -------
 app.get("/api/users", controllers.user.getAll);
 app.post("/api/user/find", controllers.user.getUser);
-app.post("api/user/profile", controllers.user.getProfile);
+app.get("/api/user/profile/:user_email", controllers.user.getProfile);
 app.post("/api/user/create", controllers.user.createUser);
 app.put("/api/user/update", controllers.user.updateUser);
 

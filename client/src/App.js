@@ -15,6 +15,9 @@ class App extends Component {
     user: {},
   }
 
+    componentDidMount = () => {
+
+    }
 
   login = (newUser) => {
 
