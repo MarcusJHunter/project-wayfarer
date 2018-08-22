@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import { Carousel } from "react-responsive-carousel";
-import London from '../img/London1.jpg';
-import Sydney from '../img/Sydney1.jpg';
-import NY from '../img/NYC1.jpeg';
-import SF from '../img/SF1.jpg';
+import London from '../img/London2.jpg';
+import Sydney from '../img/Sydney2.jpg';
+import NY from '../img/NYC2.jpg';
+import SF from '../img/SF2.jpg';
 
 class DemoCarousel extends Component{
     render() {
       return(
       <div className="carousel">
-        <Carousel autoPlay showThumbs={false}>
+        <Carousel autoPlay showThumbs={false} showStatus={false} >
           <div >
             <img className="slide" src={London} alt="London"/>
             <p>London</p>

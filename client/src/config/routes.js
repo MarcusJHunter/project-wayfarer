@@ -11,18 +11,19 @@ const routes = (props) => {
     <Switch>
       <Route exact path='/' component={ TopicContainer } />
       <Route path='/signin' component={ SignIn } />
-      <Route path='/profile' 
-        render = { () => 
-          <Profile 
-              loggedIn={props.loggedIn} 
+      <Route path='/profile'
+        render = { () =>
+          <Profile
+              loggedIn={props.loggedIn}
               user={props.user}
+              login={props.login}
           />
         }
       />
 
-      <Route path='/homepage' render = { () => 
-          <HomepageContainer 
-            loggedIn={props.loggedIn} 
+      <Route path='/homepage' render = { () =>
+          <HomepageContainer
+            loggedIn={props.loggedIn}
             user={props.user}
           />
         }

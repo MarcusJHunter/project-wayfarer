@@ -4,51 +4,35 @@ import Users from '../models/UserModel';
 
 class SignUpForm extends Component {
 
-  state = {
-    email: '',
-    password: '',
-    confirmpassword:'',
-    location: '',
 
-  }
-
-    validateForm() {
-      if('password' !== 'confirmpassword'){
-        console.log('passwords dont match!')
-      }
-
-      return this.state.email.length > 0 && this.state.password.length > 0;
-
-    }
-
-    handleChange = event => {
-      this.setState({
-        [event.id]: event.value
-      });
-    }
 
     handleSubmit = event => {
       event.preventDefault();
 
       let user = {
         email: this.refs.email.value,
-        loacation: this.refs.location.value,
+        location: this.refs.location.value,
         password: this.refs.password.value,
       }
+
+
+
 
 
       Users.createUser(user)
         .then(response => {
           console.log(response)
           if(response){
-            localStorage.setItem('userEmail',response.data.email)
-            localStorage.setItem('userId',response.data._id)
+            localStorage.setItem('user',response.data.email)
+            localStorage.setItem('loggedIn',this.props.loggedIn)
             this.props.login(response.data);
+            console.log("response.data", response.data)
+
           }
+
           else{
             console.log('user not found')
           }
-
         })
         .catch(err => {
           console.log(err);

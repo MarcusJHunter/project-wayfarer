@@ -15,20 +15,37 @@ class App extends Component {
     user: {},
   }
 
+    componentDidMount = () => {
+      if (localStorage.getItem("loggedIn") === "true"){
+        let userEmail = localStorage.getItem('user');
+        // console.log('APP CDM', user)
+      this.setState ({
+        loggedIn: true,
+        user: {...this.state.user, email: userEmail}
+      })
+    }else{
+      (localStorage.getItem("loggedIn") === "false")
+      this.setState ({
+        loggedIn: false,
+        user: {}
+      })
+    }
+  }
 
   login = (newUser) => {
-
+    localStorage.setItem('loggedIn', true)
     this.setState({
       loggedIn: true,
       user: newUser,
     })
   }
 
-  logout = () => {
+  logout = (newUser) => {
     localStorage.setItem('user', null);
+    localStorage.setItem('loggedIn', false);
     this.setState({
       loggedIn: false,
-      user: {},
+      user: newUser,
     })
   }
 
@@ -36,7 +53,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <NavBar login={this.login} loggedIn={this.state.loggedIn} user={this.state.user} />
+        <NavBar login={this.login} loggedIn={this.state.loggedIn} user={this.state.user} logout={this.logout} />
         <MyRoutes user={this.state.user} loggedIn={this.state.loggedIn} />
       </div>
     );

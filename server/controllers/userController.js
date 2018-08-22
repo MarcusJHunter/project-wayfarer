@@ -51,16 +51,17 @@ const getUser = (req, res) => {
                 res.status(404).json(null)
             }
         }
-        
+
     });
 };
 
 // POST api/user/profile
 
 const getProfile = (req, res) => {
-    db.User.findOne({email: req.body.email}, (err, user) => {
+    console.log('Email = ', req.params.user_email)
+    db.User.findOne({email: req.params.user_email}, (err, user) => {
         if (err){
-            console.log(err);
+            // console.log(err);
             return err
         }else{
             if(user){
@@ -72,12 +73,12 @@ const getProfile = (req, res) => {
     })
 }
 
-// PUT api/user/update/:username
+// PUT api/user/update/
 
 const updateUser = (req, res) => {
-    let email = req.params.email;
-    let update = req.body;
-
+    let email = req.body.user.email;
+    let update = req.body.user;
+    console.log('Update Profile data = ', email, update)
     db.User.findOneAndUpdate(
         email,
         update,

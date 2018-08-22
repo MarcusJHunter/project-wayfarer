@@ -7,7 +7,7 @@ class UserModel {
         return request;
     }
 
-    static getUser(email, password){ 
+    static getUser(email, password){
         let request = axios.post("http://localhost:4000/api/user/find", {email: email, password: password});
         return request;
     }
@@ -17,9 +17,13 @@ class UserModel {
         let request = axios.post("http://localhost:4000/api/user/profile", {email: email})
         return request;
     }
+    static editProfile(user){
+        let request = axios.put("http://localhost:4000/api/user/update", {user})
+        return request;
+    }
 
     static createUser(newUser) {
-        let request = axios.post("http://localhost:4000/api/user/create", 
+        let request = axios.post("http://localhost:4000/api/user/create",
             newUser)
         return request;
     }

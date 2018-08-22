@@ -6,6 +6,14 @@ import SignUpForm from './SignUpForm.js';
 
 
 class Navbar extends Component {
+    // state = {
+    //     user: null,
+    // }
+    // componentDidUpdate = (prevProps, prevState) => {
+    //     if(this.props.user !== prevProps.user) {
+    //         this.setState({user: this.props.user})
+    //     }
+    // }
     render(){
         <Link exact to='/'></Link>
         if (this.props.loggedIn === false) {
@@ -19,7 +27,7 @@ class Navbar extends Component {
                                 <a className="close" onClick={close}>
                                 &times;
                                 </a>
-                                <LoginForm login={this.props.login} />
+                                <LoginForm login={this.props.login} loggedIn={this.props.loggedIn} />
                             </div>)}
                         </Popup>
                         <Popup trigger={<a className="button"> Sign Up! </a>} modal>
@@ -28,7 +36,7 @@ class Navbar extends Component {
                                 <a className="close" onClick={close}>
                                 &times;
                                 </a>
-                                <SignUpForm login={this.props.login} />
+                                <SignUpForm login={this.props.login}  loggedIn={this.props.loggedIn}/>
                             </div>)}
                         </Popup>
                         <div>
@@ -44,7 +52,7 @@ class Navbar extends Component {
                     <Link to='/homepage' className="title">Wayfarer</Link>
                     <header className="headRight">
                         <Link className="username" to='/profile' user={this.props.user} >{this.props.user.email}'s Profile</Link>
-                        <p>Sign out</p>
+                        <span onClick={this.props.logout}>Sign out</span>
                     </header>
                 </div>
             )
