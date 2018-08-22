@@ -115,3 +115,28 @@ input[type=text] {
 #newPost {
   display: none;
 }
+
+.cityPage {
+  display: flex;
+  flex-direction: row;
+  height: 88vh;
+  width: 98vw;
+}
+
+.cityButtons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 47vw;
+  border: solid 2px black;
+  margin: 6px;
+}
+
+.city {
+  height: 60px;
+}
+
+.postHalf {
+  border: solid 2px black;
+  margin: 6px;
+}

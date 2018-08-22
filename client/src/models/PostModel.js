@@ -7,8 +7,9 @@ class PostModel {
         return request;
     }
 
-    static createPost(post) {
-        let request = axios.post("http://localhost:4000/api/posts/create", post)
+    static createPost(post, email) {
+        console.log('post req', post);
+        let request = axios.post("http://localhost:4000/api/posts/create/"+email, post)
         return request;
     }
 }

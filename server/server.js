@@ -40,7 +40,7 @@ app.put("/api/user/update/:email", controllers.user.updateUser);
 
 // ------- Posts -------
 app.get("/api/posts", controllers.post.getPosts);
-app.post("/api/posts/create", controllers.post.createPost);
+app.post("/api/posts/create/:email", controllers.post.createPost);
 
 
 

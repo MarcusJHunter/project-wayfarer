@@ -12,8 +12,8 @@ class Profile extends Component {
         console.log(this.props.user);
         return(
             <div className='profile'>
-                <h3 className='profileName'>Email: {this.props.user} </h3>
-                <h4 className='profileCity'>City:{user.location}</h4>
+                <h3 className='profileName'>Email: {this.props.user.email} </h3>
+                <h4 className='profileCity'>City:{this.props.user.location}</h4>
 
             </div>
         )

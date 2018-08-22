@@ -4,35 +4,46 @@ let db= require ("../models")
 // get api/posts
 
 const getPosts = (req,res)=> {
-  db.Post.find ({}, (err) => {
+  db.Post.find ({}, (err, posts) => {
     if (err) {
       console.log(err);
       return err;
+    }else{
+      res.json(posts);
     }
-    res.json(posts);
   });
 };
+
+// GET Api/posts/city
+
+const getCitiesPosts = (req, res) => {
+  db.Post.find(cityName,)
+}
 
 // post api/posts/create
 
 const createPost = (req, res) => {
-  console.log(req.body)
-
+  console.log('req.body',req.body);
   db.Post.create(req.body, (err, newPost) => {
+    console.log('newPost', newPost);
     if (err) {
-      console.log(err);
-      return err;
+      res.send(err);
+    }else{
+      db.User.findOne({email: req.params.email}, (err, foundUser) => {
+        if (err) {
+          console.log(err);
+          res.send(err);
+        }else{
+          if(foundUser){
+            newPost.user = foundUser._id;
+            newPost.save();
+            res.status(200).json(newPost);
+          }else{
+            res.status(404).send('user not found');
+          }
+        }
+      })  
     }
-
-    db.User.findOne({email: email}, (err, foundUser) => {
-      if (err) {
-        console.log(err);
-        return err;
-      }
-      newPost.user = foundUser;
-      newPost.save();
-    })
-    res.json(post);
   });
 };
 

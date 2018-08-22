@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 import NavBar from './components/NavBar';
-import { Switch, Route } from 'react-router-dom';
-import SignIn from './components/SignInBtn';
-import Profile from './components/Profile';
-import HomepageContainer from './containers/HomepageContainer';
-import TopicContainer from './containers/TopicContainer';
+// import { Switch, Route } from 'react-router-dom';
+// import SignIn from './components/SignInBtn';
+// import Profile from './components/Profile';
+// import HomepageContainer from './containers/HomepageContainer';
+// import TopicContainer from './containers/TopicContainer';
 import MyRoutes from './config/routes';
 
 class App extends Component {
