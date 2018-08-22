@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PostModel from '../models/PostModel';
 
 class Post extends Component {
 
@@ -21,27 +22,51 @@ class Post extends Component {
         this.setState({body: event.target.value})
     }
 
+    submit = () => {
+        let post = {
+            title: this.state.title,
+            body: this.state.body
+        }
+        PostModel.updatePost(this.props.post._id, post)
+            .then(res => {
+                console.log("In Submit .then", res.data)
+                this.props.editPost(res.data)
+                this.setState({canEdit: false})
+                document.getElementById("editPost").style.display= "display";
+                
+            })
+            .catch(err => {
+                console.log("this.props.post ", this.props.post)
+                console.log(err);
+            })
+    }
+
+    delete = () => {
+        
+        PostModel.deletePost(this.props.post._id)
+            .then(res => {
+                this.setState({canEdit: false});
+                document.getElementById("editPost").style.display= "display";
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+
 
     render(){
-        // console.log(localStorage.getItem('userEmail'))
-        // console.log(localStorage.getItem('userId'))
-        // let canEdit = false;
-        // if(){
-
-        // }
+ 
 
         return(
             <div className="">
-                
-                {/* <h3>{this.props.post.body}</h3> */}
                 {
                     this.state.canEdit
-                    ? <input type="text" value={this.state.title} onChange={this.handleTitle}/>
+                    ? <input type="text" ref="title" value={this.state.title} onChange={this.handleTitle}/>
                     : <h2>{this.props.post.title}</h2>
                 }
                 {
                     this.state.canEdit
-                    ? <input type="text" value={this.state.body} onChange={this.handleBody}/>
+                    ? <input type="text" ref="body" value={this.state.body} onChange={this.handleBody}/>
                     : <h2>{this.props.post.body}</h2>
                 }
                 {

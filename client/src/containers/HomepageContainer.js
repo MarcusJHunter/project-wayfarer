@@ -9,7 +9,8 @@ class HomepageContainer extends Component {
     
     state = {
         currentCity: "London",
-        posts: []
+        posts: [],
+        dummy: true
     }
 
 
@@ -25,6 +26,13 @@ class HomepageContainer extends Component {
         let posts = this.state.posts;
         posts.push(newPost)
         this.setState({posts: posts});
+    }
+
+    editPost = (newPost) => {
+        let objIndex = this.state.posts.findIndex((obj => obj._id === newPost._id));
+    
+        this.state.posts[objIndex] = newPost;
+        this.setState({posts: this.state.posts})
     }
 
     sydneyChange = () => {
@@ -84,7 +92,7 @@ class HomepageContainer extends Component {
                             </div>)}
                     </Popup>
 
-                    <CityPosts  currentCity={this.state.currentCity} user={this.props.user} posts={this.state.posts} />
+                    <CityPosts  currentCity={this.state.currentCity} user={this.props.user} posts={this.state.posts} editPost={this.editPost}/>
 
                     {/* <h1 id="newPost">New post made</h1> */}
                 </div>

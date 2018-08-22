@@ -47,18 +47,17 @@ const createPost = (req, res) => {
   });
 };
 
-
-
+// PUT
 
 const updatePost = (req, res) => {
-  let title = req.params.title;
+  let postId = req.params.postId;
   let update = req.body;
 
-  db.Post.findOneAndUpdate(
-    title,
-    email,
+  db.Post.findByIdAndUpdate(
+    postId,
+    update,
     {new: true},
-    (err, user) => {
+    (err, post) => {
       if (err) {
         console.log(err);
         return err;
@@ -67,8 +66,25 @@ const updatePost = (req, res) => {
     });
 };
 
+// DELETE
+
+const deletePost = (req, res) => {
+  let postId = req.params.postId;
+  console.log('postId', postId);
+  db.Post.findByIdAndRemove(postId, (err, foundPost) => {
+    if (err) {
+      console.log(err);
+      return err;
+    } else {
+      console.log('deleted post', foundPost)
+      res.status(200).send("USER DELETED")
+    }
+  })
+}
+
 module.exports = {
   getPosts: getPosts,
   createPost: createPost,
-  updatePost: updatePost
+  updatePost: updatePost,
+  deletePost: deletePost,
 }

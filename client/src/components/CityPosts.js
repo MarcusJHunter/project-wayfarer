@@ -10,7 +10,7 @@ class CityPosts extends Component {
         let posts = this.props.posts.map(post => {
             if(post.city === this.props.currentCity){
                 return(
-                    <Post key={post._id} post={post}/>
+                    <Post key={post._id} post={post} editPost={this.props.editPost}/>
                 )
             }
              
