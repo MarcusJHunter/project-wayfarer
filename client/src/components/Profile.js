@@ -28,7 +28,7 @@ class Profile extends Component {
                     <h3 className='profileEmail'>Email: {this.state.user.email} </h3>
                     <h4 className='profileCity'>City: {this.state.user.location} </h4>
                     <h5 className='profileJd'>Join Date:{this.state.user.joinDate}</h5>
-                <Popup trigger={<a className="button"> Edit Profile </a>} modal>
+                <Popup trigger={<a className="edit"> Edit Profile </a>} modal>
                                 {close => (
                                 <div className="modal">
                                     <a className="close" onClick={close}>
