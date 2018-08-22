@@ -38,7 +38,6 @@ class Profile extends Component {
                                 </div>)}
                             </Popup>
 
-<<<<<<< HEAD
                 </div>
             )
         } else {
@@ -49,13 +48,6 @@ class Profile extends Component {
                 </div>
             )
         }
-=======
-        console.log(this.props.user);
-        return(
-            <div className='profile'>
-                <h3 className='profileName'>Email: {this.props.user.email} </h3>
-                <h4 className='profileCity'>City:{this.props.user.location}</h4>
->>>>>>> upstream/master
 
     }
 }
