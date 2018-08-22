@@ -15,6 +15,10 @@ class SignUpForm extends Component {
         password: this.refs.password.value,
       }
 
+
+
+
+
       Users.createUser(user)
         .then(response => {
           console.log(response)
@@ -23,6 +27,7 @@ class SignUpForm extends Component {
             localStorage.setItem('loggedIn',this.props.loggedIn)
             this.props.login(response.data);
             console.log("response.data", response.data)
+
           }
 
           else{

@@ -18,11 +18,20 @@ const getPosts = (req,res)=> {
 const createPost = (req, res) => {
   console.log(req.body)
 
-  db.Post.create(req.body, (err, post) => {
+  db.Post.create(req.body, (err, newPost) => {
     if (err) {
       console.log(err);
       return err;
     }
+
+    db.User.findOne({email: email}, (err, foundUser) => {
+      if (err) {
+        console.log(err);
+        return err;
+      }
+      newPost.user = foundUser;
+      newPost.save();
+    })
     res.json(post);
   });
 };

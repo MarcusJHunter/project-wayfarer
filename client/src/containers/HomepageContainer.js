@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
+import Popup from "reactjs-popup";
 import City from '../components/City';
+import PostForm from '../components/CreatePostForm';
 
 class HomepageContainer extends Component {
     
     state = {
         currentCity: "London",
-        loggedIn: false,
     }
 
     sydneyChange = () => {
@@ -49,6 +50,20 @@ class HomepageContainer extends Component {
                     currentCity={this.state.currentCity}
                     loggedIn={this.state.loggedIn}
                 />
+                <Popup trigger={<a className="button makeProfile"> Create Post! </a>} modal>
+                    {close => (
+                        <div className="modal">
+                            <a className="close" onClick={close}>
+                            &times;
+                            </a>
+                            <PostForm 
+                                user={this.props.user}
+                                loggedIn={this.props.loggedIn}
+                                currentCity={this.state.currentCity}
+                            />
+                        </div>)}
+                </Popup>
+                <h1 id="newPost">New post made</h1>
             </div>
         )
     }
