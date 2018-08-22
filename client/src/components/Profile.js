@@ -10,7 +10,6 @@ class Profile extends Component {
     }
 
     componentDidMount = () => {
-        console.log('in didMount',localStorage.getItem('loggedIn'))
             let userEmail = localStorage.getItem('user');
             axios.get(`http://localhost:4000/api/user/profile/${userEmail}`)
                 .then(res => this.setState({ user: res.data }))

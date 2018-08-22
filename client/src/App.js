@@ -16,14 +16,6 @@ class App extends Component {
   }
 
     componentDidMount = () => {
-      console.log('state', this.state.loggedIn);
-      // if(this.state.loggedIn){
-      //   localStorage.setItem('loggedIn', true)
-      // }else{
-      //   localStorage.setItem('loggedIn', false)
-      //   localStorage.setItem('user', '')
-      //   console.log(localStorage.getItem('loggedIn'))
-      // }
       if (localStorage.getItem("loggedIn") === "true"){
         let userEmail = localStorage.getItem('user');
         // console.log('APP CDM', user)
@@ -42,19 +34,18 @@ class App extends Component {
 
   login = (newUser) => {
     localStorage.setItem('loggedIn', true)
-    localStorage.setItem('user', newUser);
     this.setState({
       loggedIn: true,
       user: newUser,
     })
   }
 
-  logout = () => {
+  logout = (newUser) => {
     localStorage.setItem('user', null);
     localStorage.setItem('loggedIn', false);
     this.setState({
       loggedIn: false,
-      user: '',
+      user: newUser,
     })
   }
 
