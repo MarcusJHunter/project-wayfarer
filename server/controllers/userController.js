@@ -40,7 +40,6 @@ const createUser = (req, res) => {
 // POST api/user/find
 
 const getUser = (req, res) => {
-    // console.log(req)
     db.User.findOne({email: req.body.email, password: req.body.password}, (err, user) => {
         if (err) {
             console.log(err);

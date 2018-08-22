@@ -15,11 +15,16 @@ app.use(bodyParser.json());
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
+<<<<<<< HEAD
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
   res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS', )
+=======
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+>>>>>>> upstream/master
   next();
 });
 
@@ -41,7 +46,9 @@ app.put("/api/user/update", controllers.user.updateUser);
 
 // ------- Posts -------
 app.get("/api/posts", controllers.post.getPosts);
-app.post("/api/posts/create", controllers.post.createPost);
+app.post("/api/posts/create/:email", controllers.post.createPost);
+app.put("/api/posts/update/:postId", controllers.post.updatePost);
+app.delete("/api/posts/delete/:postId", controllers.post.deletePost);
 
 
 

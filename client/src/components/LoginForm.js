@@ -36,10 +36,15 @@ class LoginForm extends Component {
     Users.getUser(email, password)
       .then(response => {
         if(response.data){
+<<<<<<< HEAD
 
           localStorage.setItem('user',response.data.email)
           localStorage.setItem('loggedIn',this.props.loggedIn)
 
+=======
+          localStorage.setItem('userEmail',response.data.email)
+          localStorage.setItem('userId',response.data._id)
+>>>>>>> upstream/master
           this.props.login(response.data);
         }
         else{

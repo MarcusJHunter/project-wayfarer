@@ -6,22 +6,21 @@ class PostForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-
-        let post = {
+        Posts.createPost({
             title: this.refs.title.value,
             body: this.refs.body.value,
-            city: this.props.currentCity,
-            user: this.props.user.email,
-        }
-
-        Posts.createPost(post)
+            city: this.props.currentCity
+        }, this.props.user.email)
             .then(res => {
                 if(res){
-                    document.getElementById("newPost").style.display = "block"
+                    console.log("in then", res.data)
+                    this.props.addPost(res.data)
+                    // document.getElementById("newPost").style.display = "block"
                 }
             })
             .catch(err => {
                 console.log(err);
+                console.log("in catch");
             })
 
     }
