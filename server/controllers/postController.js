@@ -77,7 +77,7 @@ const deletePost = (req, res) => {
       return err;
     } else {
       console.log('deleted post', foundPost)
-      res.status(200).send("USER DELETED")
+      res.status(200).json(foundPost)
     }
   })
 }

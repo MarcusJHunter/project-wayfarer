@@ -30,8 +30,13 @@ class HomepageContainer extends Component {
 
     editPost = (newPost) => {
         let objIndex = this.state.posts.findIndex((obj => obj._id === newPost._id));
-    
         this.state.posts[objIndex] = newPost;
+        this.setState({posts: this.state.posts})
+    }
+
+    deletePost = (deletedPost) => {
+        let objIndex = this.state.posts.findIndex((obj => obj._id === deletedPost._id));
+        this.state.posts.splice(objIndex, 1)
         this.setState({posts: this.state.posts})
     }
 
@@ -92,7 +97,7 @@ class HomepageContainer extends Component {
                             </div>)}
                     </Popup>
 
-                    <CityPosts  currentCity={this.state.currentCity} user={this.props.user} posts={this.state.posts} editPost={this.editPost}/>
+                    <CityPosts  currentCity={this.state.currentCity} user={this.props.user} posts={this.state.posts} editPost={this.editPost} deletePost={this.deletePost} />
 
                     {/* <h1 id="newPost">New post made</h1> */}
                 </div>

@@ -32,7 +32,7 @@ class Post extends Component {
                 console.log("In Submit .then", res.data)
                 this.props.editPost(res.data)
                 this.setState({canEdit: false})
-                document.getElementById("editPost").style.display= "display";
+                document.getElementById("editPost").style.display= "block";
                 
             })
             .catch(err => {
@@ -42,11 +42,14 @@ class Post extends Component {
     }
 
     delete = () => {
+
+        let newPost = this.props.post;
         
         PostModel.deletePost(this.props.post._id)
             .then(res => {
                 this.setState({canEdit: false});
-                document.getElementById("editPost").style.display= "display";
+                document.getElementById("editPost").style.display= "none";
+                this.props.deletePost(newPost)
             })
             .catch(err => {
                 console.log(err);
@@ -55,7 +58,7 @@ class Post extends Component {
 
 
     render(){
- 
+        console.log('post render', this.props.post);
 
         return(
             <div className="">
