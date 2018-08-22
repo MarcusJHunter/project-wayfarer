@@ -36,7 +36,8 @@ class LoginForm extends Component {
     Users.getUser(email, password)
       .then(response => {
         if(response.data){
-          localStorage.setItem('user',response.data.email)
+          localStorage.setItem('user',response.data)
+          localStorage.setItem('loggedIn',this.props.loggedIn)
           this.props.login(response.data);
         }
         else{

@@ -20,6 +20,7 @@ class SignUpForm extends Component {
           console.log(response)
           if(response){
             localStorage.setItem('user',response.data.email)
+            localStorage.setItem('loggedIn',this.props.loggedIn)
             this.props.login(response.data);
             console.log("response.data", response.data)
           }

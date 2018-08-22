@@ -10,39 +10,46 @@ class Profile extends Component {
     }
 
     componentDidMount = () => {
-        let userEmail = localStorage.getItem('user');
-        console.log(userEmail)
-        axios.get(`http://localhost:4000/api/user/profile/${userEmail}`)
-            .then(res => this.setState({ user: res.data }))
+        console.log('in didMount',localStorage.getItem('loggedIn'))
+            let userEmail = localStorage.getItem('user');
+            axios.get(`http://localhost:4000/api/user/profile/${userEmail}`)
+                .then(res => this.setState({ user: res.data }))
     }
 
     updateUser = (user) => {
-        this.setState({ user })
+        this.setState({ user: user })
     }
 
     render(){
 
-        console.log(this.props)
-        console.log('Props User', this.state.user);
-        return(
-            <div className='profile'>
-                <h2 className='profileName'> Name: {this.state.user.name}</h2>
-                <h3 className='profileEmail'>Email: {this.state.user.email} </h3>
-                <h4 className='profileCity'>City: {this.state.user.location} </h4>
-                <h5 className='profileJd'>Join Date:{this.state.user.joinDate}</h5>
-               <Popup trigger={<a className="button"> Edit Profile </a>} modal>
-                            {close => (
-                            <div className="modal">
-                                <a className="close" onClick={close}>
-                                &times;
-                                </a>
-                                <EditProfile user={this.props.user} login={this.props.login} updateUser={this.updateUser} />
-                            </div>)}
-                        </Popup>
+        if(localStorage.getItem('loggedIn')){
+            return(
+                <div className='profile'>
+                    <h2 className='profileName'> Name: {this.state.user.name}</h2>
+                    <h3 className='profileEmail'>Email: {this.state.user.email} </h3>
+                    <h4 className='profileCity'>City: {this.state.user.location} </h4>
+                    <h5 className='profileJd'>Join Date:{this.state.user.joinDate}</h5>
+                <Popup trigger={<a className="button"> Edit Profile </a>} modal>
+                                {close => (
+                                <div className="modal">
+                                    <a className="close" onClick={close}>
+                                    &times;
+                                    </a>
+                                    <EditProfile user={this.props.user} login={this.props.login} updateUser={this.updateUser} />
+                                </div>)}
+                            </Popup>
 
-            </div>
+                </div>
+            )
+        } else {
+            console.log(localStorage.getItem('loggedIn',))
+            return(
+                <div>
+                    <p>User not authorized</p>
+                </div>
+            )
+        }
 
-        )
     }
 }
 
