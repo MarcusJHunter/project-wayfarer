@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 import PostModel from '../models/PostModel';
+import London from '../img/London2.jpg';
+import Sydney from '../img/Sydney2.jpg';
+import NY from '../img/NYC2.jpg';
+import SF from '../img/SF2.jpg';
 
 class Post extends Component {
 
